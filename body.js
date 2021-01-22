@@ -1,4 +1,4 @@
-const GRAVITATIONAL_CONSTANT = 0.0008;
+const GRAVITATIONAL_CONSTANT = 10;
 const INITIAL_SPEED = 6;
 const MAX_MASS = 6;
 const PATH_LENGTH = 300;
@@ -48,12 +48,12 @@ class Body {
 
     const dir = body.pos.copy();
     dir.sub(this.pos);
+    const d = constrain(dir.mag(), 5, 25);
+    dir.normalize();
 
-    // const scalar = (GRAVITATIONAL_CONSTANT * body.mass * this.mass) / dir.magSq();
+    const scalar = (GRAVITATIONAL_CONSTANT * body.mass * this.mass) / (d * d);
 
-    // dir.normalize();
-
-    dir.mult(GRAVITATIONAL_CONSTANT);
+    dir.mult(scalar);
     this.applyForce(dir);
   }
 }

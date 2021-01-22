@@ -23,6 +23,12 @@ function draw() {
     b.update();
   });
 
+  textSize(32);
+  textAlign(RIGHT, TOP);
+  fill(0);
+  console.log(frameRate().toString().slice(0,4));
+  text(frameRate().toString().slice(0,4), width - bodies[0].pos.x, -bodies[0].pos.y);
+
   bodies.forEach((b, i) => b.show(bodies[0].pos));
   //bodies.forEach((b, i) => b.show(createVector(0, 0)));
 }
