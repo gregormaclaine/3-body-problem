@@ -7,7 +7,6 @@ function setup() {
   bodies.push(new Body(0, -100));
   bodies.push(new Body(-100, 50));
   bodies.push(new Body(100, 50));
-  //bodies.push(new Body(100, -100));
 }
 
 function draw() {
